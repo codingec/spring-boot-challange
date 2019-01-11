@@ -5,11 +5,8 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
-import java.text.SimpleDateFormat;
-import java.time.format.DateTimeFormatter;
 import org.springframework.format.annotation.DateTimeFormat.ISO;
 import java.util.Date;
-//    @DateTimeFormat(pattern = "yyyy-MM-dd'T'hh:mm:ss")
 
 
 @Entity
@@ -66,11 +63,7 @@ public class Item {
         this.price = price;
     }
 
-    public Date getExpiration_date() {
-
-       return expiration_date;
-
-    }
+    public Date getExpiration_date() {return expiration_date; }
 
     public void setExpiration_date(Date expiration_date) {
         this.expiration_date = expiration_date;

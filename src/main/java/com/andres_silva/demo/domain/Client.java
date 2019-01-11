@@ -3,7 +3,6 @@ package com.andres_silva.demo.domain;
 
 import org.hibernate.validator.constraints.NotEmpty;
 import javax.persistence.*;
-import java.math.BigDecimal;
 
 
 @Entity
