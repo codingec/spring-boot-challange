@@ -37,14 +37,7 @@ public class ItemServiceImpl implements ItemService {
     }
 
     @Override
-    public Item saveOrUpdate(Item item) {
-//        for (String name : item) {
-
-           itemRepository.save(item);
-//        }
-
-        return item;
-    }
+    public Item saveOrUpdate(Item item) { itemRepository.save(item); return item; }
 
     @Override
     public void delete(Long id) {
@@ -55,8 +48,6 @@ public class ItemServiceImpl implements ItemService {
     @Override
     public Item saveOrUpdateItemForm(ItemForm itemForm) {
         Item savedItem = saveOrUpdate(itemFormToItem.convert(itemForm));
-
-        System.out.println("Saved Item Id: " + savedItem.getId_item());
         return savedItem;
     }
 }

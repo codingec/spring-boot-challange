@@ -1,6 +1,6 @@
 $(document).ready(function() {
 	$('#startDate, #stopDate').datetimepicker({
-    	format: 'd-m-Y H:i'
+    	format: 'Y-m-d H:i'
     });
 
 $('.selectpicker').selectpicker();
@@ -13,9 +13,9 @@ $('.selectpicker').selectpicker({
 
 
 $('#startDate').datetimepicker({
-    format: 'd-m-Y H:i'
+    format: 'Y-m-d H:i'
 });
 
 $('#endDate').datetimepicker({
-    format: 'd-m-Y H:i'
+    format: 'Y-m-d H:i'
 });

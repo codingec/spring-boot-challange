@@ -55,7 +55,7 @@
                 <th>Id</th>
                 <th>Description</th>
                 <th>Price</th>
-                <th>Image URL</th>
+                <th>Date</th>
                 <th>List</th>
                 <th>Edit</th>
                 <th>Delete</th>
@@ -65,13 +65,13 @@
 
             </tbody>
             <tr th:each="item : ${items}">
-                <td th:text="${item.id}"></td>
-                <td th:text="${item.description}"></td>
+                <td th:text="${item.id_item}"></td>
+                <td th:text="${item.item_description}"></td>
                 <td th:text="${item.price}"></td>
-                <td th:text="${item.imageUrl}"></td>
-                <td><a class="fa fa-check-square-o" aria-hidden="true" th:href="${'/product/show/' + item.id}">View</a> </td>
-                <td><a class="fa fa-pencil-square-o" aria-hidden="true" th:href="${'/product/edit/' + item.id}">Edit</a> </td>
-                <td><a class="fa fa-eraser" aria-hidden="true" th:href="${'/product/delete/' + item.id}">Delete</a> </td>
+                <td th:text="${item.expiration_date}"></td>
+                <td><a class="fa fa-check-square-o" aria-hidden="true" th:href="${'/product/show/' + item.id_item}">View</a> </td>
+                <td><a class="fa fa-pencil-square-o" aria-hidden="true" th:href="${'/product/edit/' + item.id_item}">Edit</a> </td>
+                <td><a class="fa fa-eraser" aria-hidden="true" th:href="${'/product/delete/' + item.id_item}">Delete</a> </td>
             </tr>
             <tfoot >
 

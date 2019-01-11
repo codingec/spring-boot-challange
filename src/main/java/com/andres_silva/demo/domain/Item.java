@@ -5,7 +5,11 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
+import org.springframework.format.annotation.DateTimeFormat.ISO;
 import java.util.Date;
+//    @DateTimeFormat(pattern = "yyyy-MM-dd'T'hh:mm:ss")
 
 
 @Entity
@@ -15,7 +19,7 @@ public class Item {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id_item")
-    private Integer id_item;
+    private Long id_item;
     @OneToOne(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinColumn(name = "id_client")
     private Client client;
@@ -24,14 +28,16 @@ public class Item {
     @Column(name="price")
     private BigDecimal price;
     @Column(name="expiration_date")
-    @DateTimeFormat(pattern = "dd-MM-yyyy HH:mm:ss")
+    @DateTimeFormat(iso=ISO.DATE)
     private Date expiration_date;
 
-    public Integer getId_item() {
+
+
+    public Long getId_item() {
         return id_item;
     }
 
-    public void setId_item(Integer id_item) {
+    public void setId_item(Long id_item) {
         this.id_item = id_item;
     }
 
@@ -61,7 +67,9 @@ public class Item {
     }
 
     public Date getExpiration_date() {
-        return expiration_date;
+
+       return expiration_date;
+
     }
 
     public void setExpiration_date(Date expiration_date) {

@@ -3,7 +3,10 @@ package com.andres_silva.demo.forms;
 
 import com.andres_silva.demo.domain.Client;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.DateTimeFormat.ISO;
 
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -11,18 +14,18 @@ import java.util.Date;
 
 public class ItemForm {
 
-    private Integer id_item;
+    private Long id_item;
     private Client client;
     private String item_description;
     private BigDecimal price;
-    @DateTimeFormat(pattern = "dd-MM-yyyy HH:mm:ss")
+    @DateTimeFormat(iso=ISO.DATE)
     private Date expiration_date;
 
-    public Integer getId_item() {
+    public Long getId_item() {
         return id_item;
     }
 
-    public void setId_item(Integer id_item) {
+    public void setId_item(Long id_item) {
         this.id_item = id_item;
     }
 
