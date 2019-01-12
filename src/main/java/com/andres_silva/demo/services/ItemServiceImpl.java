@@ -1,5 +1,6 @@
 package com.andres_silva.demo.services;
 
+import com.andres_silva.demo.domain.Client;
 import com.andres_silva.demo.domain.Item;
 import com.andres_silva.demo.forms.ItemForm;
 import com.andres_silva.demo.converters.ItemFormToItem;
@@ -36,13 +37,16 @@ public class ItemServiceImpl implements ItemService {
         return itemRepository.findById(id).orElse(null);
     }
 
+
     @Override
-    public Item saveOrUpdate(Item item) { itemRepository.save(item); return item; }
+    public Item saveOrUpdate(Item item) {
+        itemRepository.save(item);
+        return item;
+    }
 
     @Override
     public void delete(Long id) {
         itemRepository.deleteById(id);
-
     }
 
     @Override
@@ -50,4 +54,5 @@ public class ItemServiceImpl implements ItemService {
         Item savedItem = saveOrUpdate(itemFormToItem.convert(itemForm));
         return savedItem;
     }
+
 }

@@ -1,5 +1,6 @@
 package com.andres_silva.demo.services;
 
+import com.andres_silva.demo.domain.Client;
 import com.andres_silva.demo.forms.ItemForm;
 import com.andres_silva.demo.domain.Item;
 

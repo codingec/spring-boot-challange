@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>sssx</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" th:href="@{/css/header/datetimepicker.css}"/>
+    <script th:src="@{/css/header/jquery.min.js}"></script>
+    <script th:src="@{/css/header/datetimepicker.js}"></script>
+    <script th:src="@{/css/header/dates.js}"></script>
+
+</head>
+<body>
+<div class="container">
+    <div id="signupbox" style=" margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <div class="panel-title"><h2>Product Details</h2></div>
+                <div style="float:right; font-size: 85%; position: relative; top:-10px"> </div>
+            </div>
+            <div class="panel-body" >
+
+    <div>
+         <form class="form-horizontal"  th:action="@{/product}" method="post">
+
+            <div class="form-group" th:class="${#fields.hasErrors('clientForm.client_name')} ? 'form-group has-error' : 'form-group'">
+                <label class="col-sm-2 control-label">Name:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" th:field="*{clientForm.client_name}" th:value="${clientForm.client_name}" th:errorclass="has-error"/>
+
+                    <span class="help-block">
+                       <ul>
+                           <li th:each="err : ${#fields.errors('clientForm.client_name')}" th:text="${err}" />
+                       </ul>
+                    </span>
+                </div>
+            </div>
+
+                <div class="form-group" th:class="${#fields.hasErrors('clientForm.region')} ? 'form-group has-error' : 'form-group'">
+                    <label class="col-sm-2 control-label">Region:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" th:field="*{clientForm.region}" th:value="${clientForm.region}" th:errorclass="has-error"/>
+
+                        <span class="help-block">
+                       <ul>
+                           <li th:each="err : ${#fields.errors('clientForm.region')}" th:text="${err}" />
+                       </ul>
+                    </span>
+                    </div>
+                </div>
+
+
+
+
+
+
+            <div class="form-group" th:class="${#fields.hasErrors('itemForm.item_description')} ? 'form-group has-error' : 'form-group'">
+                <label class="col-sm-2 control-label">Descripcion:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" th:field="*{itemForm.item_description}" th:errorclass="has-error"/>
+
+                    <span class="help-block">
+                       <ul>
+                           <li th:each="err : ${#fields.errors('itemForm.item_description')}" th:text="${err}" />
+                       </ul>
+                    </span>
+                </div>
+            </div>
+
+            <div class="form-group" th:class="${#fields.hasErrors('itemForm.price')} ? 'form-group has-error' : 'form-group'">
+                <label class="col-sm-2 control-label">Price:</label>
+                <div class="col-sm-10">
+                    <input type="number" min="0" max="5000" step="0.01" class="form-control" th:field="*{itemForm.price}" th:errorclass="has-error"/>
+
+                    <span class="help-block">
+                       <ul>
+                           <li th:each="err : ${#fields.errors('itemForm.price')}" th:text="${err}" />
+                       </ul>
+                    </span>
+                </div>
+            </div>
+
+            <div class="form-group" th:class="${#fields.hasErrors('itemForm.expiration_date')} ? 'form-group has-error' : 'form-group'">
+                <label class="col-sm-2 control-label">Dia:</label>
+                <div class="col-sm-10">
+                    <input  type="text" class="form-control" name="yearOne" id="startDate" th:field="*{itemForm.expiration_date}" th:errorclass="has-error"/>
+
+                    <span class="help-block">
+                       <ul>
+                           <li th:each="err : ${#fields.errors('itemForm.expiration_date')}" th:text="${err}" />
+                       </ul>
+                    </span>
+                </div>
+            </div>
+
+
+
+            <div class="row">
+                <button type="submit" class="btn btn-default">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+</div>
+</div>
+</div>
+
+</body>
+</html>

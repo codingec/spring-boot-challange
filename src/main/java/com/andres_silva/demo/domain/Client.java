@@ -3,11 +3,12 @@ package com.andres_silva.demo.domain;
 
 import org.hibernate.validator.constraints.NotEmpty;
 import javax.persistence.*;
+import java.io.Serializable;
 
 
 @Entity
 @Table(name = "clients")
-public class Client {
+public class Client implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -21,6 +22,15 @@ public class Client {
     @NotEmpty(message = "*Please provide your region! This field can not be empty!")
     private String region;
 
+    public Client(){
+
+    }
+
+    public Client(String client_name, String region){
+        this.client_name = client_name;
+        this.region = region;
+
+    }
 
     public Long getId_client() {
         return id_client;
@@ -45,4 +55,13 @@ public class Client {
     public void setRegion(String region) {
         this.region = region;
     }
+
+//    public Item getItem() {
+//        return item;
+//    }
+//
+//    public void setItem(Item item) {
+//        this.item = item;
+//    }
+
 }
